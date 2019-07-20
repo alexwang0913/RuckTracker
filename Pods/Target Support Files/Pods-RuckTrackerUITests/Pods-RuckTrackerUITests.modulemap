@@ -1,0 +1,6 @@
+framework module Pods_RuckTrackerUITests {
+  umbrella header "Pods-RuckTrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
