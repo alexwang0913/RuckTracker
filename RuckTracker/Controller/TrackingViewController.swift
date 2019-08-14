@@ -14,9 +14,10 @@ class TrackingViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var trackingButton: UIButton!
-    @IBOutlet weak var labelDistance: UILabel!
-    @IBOutlet weak var labelSpeed: UILabel!
     @IBOutlet weak var labelTime: UILabel!
+    @IBOutlet weak var labelPace: UILabel!
+    @IBOutlet weak var labelDistance: UILabel!
+    
     
     
     let locationManager = CLLocationManager()
@@ -26,7 +27,7 @@ class TrackingViewController: UIViewController {
     var startLocation = CLLocation()
     var last: CLLocation?
     var locationList: [CLLocation] = []
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    var distance = Measurement(value: 0, unit: UnitLength.miles)
     var timer: Timer?
     var seconds = 0
     
@@ -42,7 +43,8 @@ class TrackingViewController: UIViewController {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
                 mapView.setRegion(region, animated: true)
             }
-            locationManager.startUpdatingLocation()
+            
+            mapView.delegate = self
         }
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -50,39 +52,16 @@ class TrackingViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
     }
-
-    @IBAction func onClickTrackingButton(_ sender: Any) {
-        if (isTracking == false) {
-            let location = locationManager.location?.coordinate
-            startLocation = CLLocation(latitude: location!.latitude, longitude: location!.longitude)
-            trackingButton.setTitle("Stop Tracking", for: .normal)
-            
-            mapView.removeOverlays(mapView.overlays)
-            
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                self.eachSecond()
-            }
-            distance = Measurement(value: 0, unit: UnitLength.meters)
-            seconds = 0
-            updateDisplay()
-        } else {
-            trackingButton.setTitle("Start Tracking", for: .normal)
-            timer?.invalidate()
-            timer = nil
-        }
-        isTracking = !isTracking
-    }
     
     func updateDisplay() {
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedTime = FormatDisplay.time(seconds)
-        let formattedPace = FormatDisplay.pace(distance: distance,
-                                               seconds: seconds,
-                                               outputUnit: UnitSpeed.minutesPerMile)
+        let formattedPace = FormatDisplay.pace(distance: distance.value,
+                                               seconds: seconds)
         
-        labelDistance.text = "Distance: \(formattedDistance)"
-        labelTime.text = "Time: \(formattedTime)"
-        labelSpeed.text = "Pace:  \(formattedPace)"
+        labelDistance.text = String(format: "%.2f", formattedDistance)
+        labelTime.text = "\(formattedTime)"
+        labelPace.text = "\(formattedPace)"
     }
     
     func eachSecond() {
@@ -103,9 +82,10 @@ extension TrackingViewController: CLLocationManagerDelegate {
             
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
-                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                distance = distance + Measurement(value: delta, unit: UnitLength.miles)
                 let coordinates = [lastLocation.coordinate, newLocation.coordinate]
                 mapView.addOverlay(MKPolyline(coordinates: coordinates, count: 2))
+                
                 let region = MKCoordinateRegion(center: newLocation.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
                 mapView.setRegion(region, animated: true)
             }
@@ -116,6 +96,7 @@ extension TrackingViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
     }
+    
 }
 
 // MARK: - Map View Delegate
@@ -126,7 +107,7 @@ extension TrackingViewController: MKMapViewDelegate {
             return MKOverlayRenderer(overlay: overlay)
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = .blue
+        renderer.strokeColor = .red
         renderer.lineWidth = 3
         return renderer
     }

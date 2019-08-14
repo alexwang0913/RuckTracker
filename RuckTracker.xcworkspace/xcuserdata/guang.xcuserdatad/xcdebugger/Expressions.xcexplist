@@ -3,6 +3,228 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TrackViewController.nextButtonClick(_:):TrackViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "distance.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddSetDialogViewController.addButtonClick(_:):AddSetDialogViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "updateSetTableViewHandler">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WorkoutSetTableViewCell.addCount(_:):WorkoutSetTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddPlanViewController.saveButtonClick(_:):AddPlanViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "&quot;\(datePicker.date)&quot;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HistoryViewController.tableView(_:numberOfRowsInSection:):HistoryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "historyList">
+            </PersistentString>
+            <PersistentString
+               value = "(historyList[section] as NSDictionary).value(forKey: &quot;workouts&quot;) as! [String] ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WorkoutSetViewController.saveWorkoutHistory():WorkoutSetViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "GlobalManager.shared.workoutRepIndex">
+            </PersistentString>
+            <PersistentString
+               value = "Double(currentProgress) / Double(totalExercise)">
+            </PersistentString>
+            <PersistentString
+               value = "GlobalManager.shared.currentWorkoutSetIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TrackingViewController.updateDisplay():TrackingViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "distance">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SaveTrackViewController.viewDidLoad():SaveTrackViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "track.distance">
+            </PersistentString>
+            <PersistentString
+               value = "distanceLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "track">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TrackViewController.initTrack():TrackViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "locationManager.location">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SigninViewController.signInButtonClick(_:):SigninViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.result.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TrackViewController.updateDisplay():TrackViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "distance.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static FormatDisplay.pace(distance:seconds:outputUnit:):FormatDisplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Int(Double(seconds) / miles.value)">
+            </PersistentString>
+            <PersistentString
+               value = "Int(172/60)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static FormatDisplay.pace(distance:seconds:):FormatDisplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Int(Double(seconds) / Double(distance))">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TrackViewController.locationManager(_:didUpdateLocations:):TrackViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Measurement(value: delta, unit: UnitLength.miles).value">
+            </PersistentString>
+            <PersistentString
+               value = "distance">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ProfileDetailViewController.viewDidLoad():ProfileDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user.object(forkey: &quot;age&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HistoryViewController.numberOfSections(in:):HistoryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "historyList.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddWorkoutViewController.tableView(_:numberOfRowsInSection:):AddWorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testStrings.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WorkoutViewController.tableView(_:commit:forRowAt:):WorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "workoutList[10]">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WorkoutTableViewCell.initShareButton():WorkoutTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data.isShared">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static FormatDisplay.distance(_:):FormatDisplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "distance.converted(to: .miles)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WorkoutViewController.tableView(_:cellForRowAt:):WorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "workoutList">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddWorkoutViewController.saveWorkout(_:):AddWorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "setList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ForgotPasswordViewController.sendButtnClick(_:):ForgotPasswordViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.result.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PlanDetailViewController.getPlanDetail():PlanDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter.date(from:isoDate)">
+            </PersistentString>
+            <PersistentString
+               value = "dateFormatter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TrackingViewController.viewDidLoad():TrackingViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,7 +233,61 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in WorkoutViewController.getWorkoutList():WorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "workout.object(forkey: &quot;isShared&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in HistoryViewController.getHistory():HistoryViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in SignupViewController.signUpButtonClick(_:):SignupViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.response?.statusCode">
+            </PersistentString>
+            <PersistentString
+               value = "response.result.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectWorkoutViewController.tableView(_:numberOfRowsInSection:):SelectWorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "workouts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WorkoutSetViewController.nextButtonClick(_:):WorkoutSetViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "GlobalManager.shared.workoutRepIndex">
+            </PersistentString>
+            <PersistentString
+               value = "GlobalManager.shared.currentWorkoutSetIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SaveWorkoutViewController.viewDidLoad():SaveWorkoutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "history.seconds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static FormatDisplay.calorie(distance:seconds:):FormatDisplay.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.object(forKey: &quot;Weight&quot;)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -11,6 +11,7 @@ target 'RuckTracker' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'TextFieldEffects'
   
 
   target 'RuckTrackerTests' do

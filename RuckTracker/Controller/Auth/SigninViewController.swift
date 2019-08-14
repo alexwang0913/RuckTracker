@@ -26,7 +26,6 @@ class SigninViewController: UIViewController, GIDSignInUIDelegate {
         
         GIDSignIn.sharedInstance().uiDelegate = self
     }
-    
 
     @IBAction func signInButtonClick(_ sender: Any) {
         let apiURL = GlobalManager.shared.backendURL + "auth/login"
@@ -37,18 +36,35 @@ class SigninViewController: UIViewController, GIDSignInUIDelegate {
             self.removeSpinner()
             switch response.result {
             case .success:
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                
-                let tabViewController = storyBoard.instantiateViewController(withIdentifier: "tabView") as! TabViewController
-                tabViewController.modalPresentationStyle = .overFullScreen
-                self.present(tabViewController, animated:true, completion:nil)
+                let statusCode = response.response?.statusCode
+                let responseData = response.result.value as! NSDictionary
+                if (statusCode == 200) {
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    // Save UserID to localStorage
+                    
+                    let userId = responseData.object(forKey: "userId") as? String
+                    let height = responseData.object(forKey: "height") as? Float
+                    let weight = responseData.object(forKey: "weight") as? Float
+                    
+                    let defaults = UserDefaults.standard
+                    defaults.set(userId, forKey: "UserID")
+                    defaults.set(height, forKey: "Height")
+                    defaults.set(weight, forKey: "Weight")
+                    
+                    let tabViewController = storyBoard.instantiateViewController(withIdentifier: "tabView") as! TabViewController
+                    tabViewController.modalPresentationStyle = .overFullScreen
+                    self.present(tabViewController, animated:true, completion:nil)
+                } else {
+                    let msg: String? = responseData.object(forKey: "msg") as? String
+                    self.showAlert("Failed", msg ?? "")
+                }
                 break
             case .failure:
-                self.showAlert("Warning", "Incorrect email or password.")
+                self.showAlert("Failed", "Failed to connect server")
                 break
             }
-        }
-        
+            
+        }        
     }
     
     
